@@ -4,6 +4,10 @@ typedef unsigned char  boolean;
 #define RangeCheck(X,Y,Z) ((Z<X || Z>Y)? 0 : 1)
 #define MAXVALUE -32767
 
+boolean Check_Temperature(float temperature);
+boolean Check_SOC(float soc);
+boolean Check_ChargeRate(float chargeRate);
+
 int batteryIsOk(float temperature, float soc, float chargeRate) 
 {
   boolean batterystate = 1;
@@ -34,3 +38,4 @@ int main()
   assert(batteryIsOk(25, 70, 0.7));
   assert(!batteryIsOk(50, 85, 0));
 }
+
