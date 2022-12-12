@@ -12,8 +12,8 @@ int batteryIsOk(float temperature, float soc, float chargeRate)
 {
   int batterystate = 1;
   batterystate = Check_Temperature(temperature);
-  batterystate = Check_SOC(soc);
-  batterystate = Check_ChargeRate(chargeRate);
+  batterystate &= Check_SOC(soc);
+  batterystate &= Check_ChargeRate(chargeRate);
   
   return batterystate;
 }
