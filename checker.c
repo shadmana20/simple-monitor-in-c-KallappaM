@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 
-#define RangeCheck(X,Y,Z) ((Z<X || Z>Y)? 0 : 1)
+#define RangeCheck(X,Y,Z) ((Z<X && Z>Y)? 0 : 1)
 #define MAXVALUE -32767
 
 int Check_Temperature(float temperature);
