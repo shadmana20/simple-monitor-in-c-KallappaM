@@ -10,7 +10,4 @@
 #define SOCMAX 80
 #define CHARGERATEMAX 0.8u
 
-/*Function Delceration for BMS*/
-int Check_Temperature(float temperature);
-int Check_SOC(float soc);
-int Check_ChargeRate(float chargeRate);
+
