@@ -2,6 +2,9 @@
 #include <assert.h>
 #include BMS_Cfg.h
 
+/*Function Delceration for BMS*/
+int Check_Temperature(float temperature);
+
 /*Function Returns True if the Battery is OK else return false*/
 int batteryIsOk(float temperature, float soc, float chargeRate)
 {
