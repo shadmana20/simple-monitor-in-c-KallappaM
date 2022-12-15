@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
-#include <BMS_Cfg.h>
+#include BMS_Cfg.h
 
 /*Function Returns True if the Battery is OK else return false*/
 int batteryIsOk(float temperature, float soc, float chargeRate)
