@@ -5,11 +5,11 @@
 #define RangeCheck(Input,MinValue,MaxValue) ((Input<=MinValue || Input>=MaxValue)?0:1)
 
 /*Minimum and Maximum Ranges*/
-#define TEMPMIN	0u
+#define TEMPMIN	0
 #define TEMPMAX 45
 #define SOCMIN 20
 #define SOCMAX 80
-#define CHARGERATEMAX 0.8u
+#define CHARGERATEMAX 0.8
 
 /*Function Delceration for BMS*/
 int Check_Temperature(float temperature);
@@ -21,8 +21,8 @@ int batteryIsOk(float temperature, float soc, float chargeRate)
 {
   int batterystate = 1;
   batterystate = Check_Temperature(temperature);
-  batterystate &&= Check_SOC(soc);
-  batterystate &&= Check_ChargeRate(chargeRate);
+  batterystate *= Check_SOC(soc);
+  batterystate *= Check_ChargeRate(chargeRate);
 
   return batterystate;
 }
@@ -43,7 +43,7 @@ int Check_SOC(float soc)
 /*Function returns flase if the chargeRate is out of range and true if its in range*/ 
 int Check_ChargeRate(float chargeRate)
 {
-   if(chargeRate>CHARGERATEMAX)
+   if(chargeRate > CHARGERATEMAX)
    return 0;
    else
    return 1;
