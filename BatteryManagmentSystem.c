@@ -1,9 +1,20 @@
 #include <stdio.h>
 #include <assert.h>
-#include BMS_Cfg.h
+
+/*Macro to check the minimum and maximum value of given input*/
+#define RangeCheck(Input,MinValue,MaxValue) ((Input<=MinValue || Input>=MaxValue)?0:1)
+
+/*Minimum and Maximum Ranges*/
+#define TEMPMIN	0u
+#define TEMPMAX 45
+#define SOCMIN 20
+#define SOCMAX 80
+#define CHARGERATEMAX 0.8u
 
 /*Function Delceration for BMS*/
 int Check_Temperature(float temperature);
+int Check_SOC(float soc);
+int Check_ChargeRate(float chargeRate);
 
 /*Function Returns True if the Battery is OK else return false*/
 int batteryIsOk(float temperature, float soc, float chargeRate)
@@ -20,6 +31,22 @@ int batteryIsOk(float temperature, float soc, float chargeRate)
 int Check_Temperature(float temperature)
 {
     return RangeCheck(temperature,TEMPMIN,TEMPMAX);
+}
+
+/*Function returns flase if the SOC is out of range and true if its in range*/
+int Check_SOC(float soc)
+{
+  return RangeCheck(soc,SOCMIN,SOCMAX);
+
+}
+ 
+/*Function returns flase if the chargeRate is out of range and true if its in range*/ 
+int Check_ChargeRate(float chargeRate)
+{
+   if(chargeRate>CHARGERATEMAX)
+   return 0;
+   else
+   return 1;
 }
 
 int main()
