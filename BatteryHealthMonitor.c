@@ -1,5 +1,7 @@
 #include "BatteryManagmentSystem.h"
 
+#define TOLERENCEVALUE 5
+
 void CalculateDrianPeakThreshold(int MinThreshold , int MaxThreshold)
 {
     int Value = (int)((TOLERENCEVALUE*MaxThreshold)/100);
