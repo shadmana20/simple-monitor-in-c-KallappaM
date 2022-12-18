@@ -12,9 +12,8 @@ void CalculateDrianPeakThreshold(int MinThreshold , int MaxThreshold)
 {
     int Value = (int)((TOLERENCEVALUE*MaxThreshold)/100);
     
-	descharge_range.DrainRange = MinThreshold + Value;
-	
-    descharge_range.PeakRange  = MaxThreshold - Value;
+     descharge_range.DrainRange = MinThreshold + Value;
+     descharge_range.PeakRange  = MaxThreshold - Value;
 }
 
 WarningWithTolerance PreWarningIndicatorMessage(int input, int MinThreshold , int MaxThreshold )
@@ -22,12 +21,13 @@ WarningWithTolerance PreWarningIndicatorMessage(int input, int MinThreshold , in
 
     CalculateDrianPeakThreshold(MinThreshold , MaxThreshold);
 	
-    if(input>= MinThreshold && input <= descharge_range.DrainRange)
+   // if(input>= MinThreshold && input <= descharge_range.DrainRange)
+    if(input <= descharge_range.DrainRange)	    
     {
         return Approaching_Discharge;
     }
  
-    if( input>= descharge_range.PeakRange && input <=MaxThreshold)
+    if( input>= descharge_range.PeakRange)//&& input <=MaxThreshold)
     {
         return Approaching_Peak;
     }
