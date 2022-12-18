@@ -68,22 +68,6 @@ void SelectLanguageandWarnigMessage(Select_Language Language)
         } 
 }
 
-WarningWithTolerance PreWarningIndicatorMessage(int input, int MinThreshold , int MaxThreshold )
-{   
-
-    CalculateDrianPeakThreshold(MinThreshold , MaxThreshold);
-	
-    if(input>= MinThreshold && input <= descharge_range.DrainRange)
-    {
-        return Approaching_Discharge;
-    }
- 
-    if( input>= descharge_range.PeakRange && input <=MaxThreshold)
-    {
-        return Approaching_Peak;
-    }
-}
-
 int main()
 {
   assert(batteryIsOk(25, 70, 0.7));
