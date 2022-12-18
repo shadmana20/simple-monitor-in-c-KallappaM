@@ -53,19 +53,14 @@ int Check_ChargeRate(float chargeRate)
 }
 
 void SelectLanguageandWarnigMessage(Select_Language Language)
-{        
-    for(int i =0;i<MESSAGE_MAX;i++)
-        {
-            if(Language < MAX_LANG)
-	    {
-		Store_WarningMessage[i] = WarningMessageTable[Language][i];
-            }
-	    else
-	    {
-		printf("Select the proper Language");
-                break;
-	     }
-        } 
+{   
+   if(Language < MAX_LANG)
+   {
+      for(int i =0;i<MESSAGE_MAX;i++)
+      {
+	Store_WarningMessage[i] = WarningMessageTable[Language][i];
+      }
+    } 
 }
 
 int main()
