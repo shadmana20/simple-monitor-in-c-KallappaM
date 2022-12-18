@@ -2,6 +2,12 @@
 
 #define TOLERENCEVALUE 5
 
+struct 
+{
+	int DrainRange;
+	int PeakRange;
+}descharge_range;
+
 void CalculateDrianPeakThreshold(int MinThreshold , int MaxThreshold)
 {
     int Value = (int)((TOLERENCEVALUE*MaxThreshold)/100);
