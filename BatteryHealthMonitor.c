@@ -33,7 +33,7 @@ WarningWithTolerance PreWarningIndicatorMessage(int input, int MinThreshold , in
     }
 }
 
-WarningRanges BatteryHelathMonitor(int soc)
+/*WarningRanges BatteryHelathMonitor(int soc)
 {  
     switch(soc)
     {
@@ -57,4 +57,4 @@ WarningRanges BatteryHelathMonitor(int soc)
     break;
             
     }
-}
+}*/
