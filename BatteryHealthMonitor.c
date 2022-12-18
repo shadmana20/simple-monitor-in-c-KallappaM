@@ -11,6 +11,22 @@ void CalculateDrianPeakThreshold(int MinThreshold , int MaxThreshold)
     descharge_range.PeakRange  = MaxThreshold - Value;
 }
 
+WarningWithTolerance PreWarningIndicatorMessage(int input, int MinThreshold , int MaxThreshold )
+{   
+
+    CalculateDrianPeakThreshold(MinThreshold , MaxThreshold);
+	
+    if(input>= MinThreshold && input <= descharge_range.DrainRange)
+    {
+        return Approaching_Discharge;
+    }
+ 
+    if( input>= descharge_range.PeakRange && input <=MaxThreshold)
+    {
+        return Approaching_Peak;
+    }
+}
+
 WarningRanges BatteryHelathMonitor(int soc)
 {  
     switch(soc)
