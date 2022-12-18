@@ -56,15 +56,15 @@ void SelectLanguageandWarnigMessage(Select_Language Language)
 {        
     for(int i =0;i<MESSAGE_MAX;i++)
         {
-            if( Language >= DEFAULT && Language < MAX_LANG)
-			{
-				Store_WarningMessage[i] = WarningMessageTable[Language][i];
+            if(Language < MAX_LANG)
+	    {
+		Store_WarningMessage[i] = WarningMessageTable[Language][i];
             }
-			else
-			{
-				printf("Select the proper Language");
+	    else
+	    {
+		printf("Select the proper Language");
                 break;
-			}
+	     }
         } 
 }
 
