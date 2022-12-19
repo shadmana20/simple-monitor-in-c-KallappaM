@@ -21,13 +21,12 @@ WarningWithTolerance PreWarningIndicatorMessage(int input, int MinThreshold , in
 
     CalculateDrianPeakThreshold(MinThreshold , MaxThreshold);
 	
-   // if(input>= MinThreshold && input <= descharge_range.DrainRange)
     if(input <= descharge_range.DrainRange)	    
     {
         return Approaching_Discharge;
     }
  
-    if( input>= descharge_range.PeakRange)//&& input <=MaxThreshold)
+    if( input>= descharge_range.PeakRange)
     {
         return Approaching_Peak;
     }
