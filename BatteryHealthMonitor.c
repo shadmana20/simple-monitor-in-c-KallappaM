@@ -14,7 +14,7 @@ int SocRangeCheck(int soc, int MinRange, int MaxRange)
 	{
 		return 1;
 	}
-	elseif(soc>=MaxRange)
+	else if(soc>=MaxRange)
 	{
 		return 0;
 	}
