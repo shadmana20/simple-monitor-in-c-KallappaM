@@ -1,7 +1,7 @@
 #include "BatteryManagmentSystem.h"
 
 #define TOLERENCEVALUE 5
-#define RangeChecker(X,Y,Z) (X<=Y || X>=Z)?1:0
+#define RangeChecker(X,Y,Z) (X<=Y && X>=Z)?1:0
 
 struct 
 {
