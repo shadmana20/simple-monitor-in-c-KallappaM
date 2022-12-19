@@ -9,10 +9,13 @@ struct
 	int PeakRange;
 }descharge_range;
 
+/*Function Decleration*/
 static WarningRanges ReturnSocBreach(int soc);
 static WarningRanges ReturnSocWarning(int soc);
+static int SocRangeCheck(int soc, int MinRange, int MaxRange);
+static void CalculateDrianPeakThreshold(int MinThreshold , int MaxThreshold);
 
-int SocRangeCheck(int soc, int MinRange, int MaxRange)
+static int SocRangeCheck(int soc, int MinRange, int MaxRange)
 {
 	if(soc <= MinRange)
 	{
@@ -25,7 +28,7 @@ int SocRangeCheck(int soc, int MinRange, int MaxRange)
 	
 }
 
-void CalculateDrianPeakThreshold(int MinThreshold , int MaxThreshold)
+static void CalculateDrianPeakThreshold(int MinThreshold , int MaxThreshold)
 {
     int Value = (int)((TOLERENCEVALUE*MaxThreshold)/100);
     
