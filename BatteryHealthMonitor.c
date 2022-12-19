@@ -1,6 +1,7 @@
 #include "BatteryManagmentSystem.h"
 
 #define TOLERENCEVALUE 5
+#define RangeChecker(X,Y,Z) (X<=Y || X>=Z)?1:0
 
 struct 
 {
@@ -50,7 +51,7 @@ WarningWithTolerance PreWarningIndicatorMessage(int input, int MinThreshold , in
 
 WarningRanges BatteryHelathMonitor(int soc)
 {  
-    if(SocRangeCheck(soc, 81, 21) == 1)
+    if(RangeChecker(soc, 81, 21) == 1)
 	{
 		return ReturnSocWarning(soc);
 	}
