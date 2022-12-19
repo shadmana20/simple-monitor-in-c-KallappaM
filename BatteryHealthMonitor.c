@@ -8,6 +8,19 @@ struct
 	int PeakRange;
 }descharge_range;
 
+int SocRangeCheck(int soc, int MinRange, int MaxRange)
+{
+	if(soc <= MinRange)
+	{
+		return 1;
+	}
+	elseif(soc>=MaxRange)
+	{
+		return 0;
+	}
+	
+}
+
 void CalculateDrianPeakThreshold(int MinThreshold , int MaxThreshold)
 {
     int Value = (int)((TOLERENCEVALUE*MaxThreshold)/100);
@@ -32,28 +45,54 @@ WarningWithTolerance PreWarningIndicatorMessage(int input, int MinThreshold , in
     }
 }
 
-/*WarningRanges BatteryHelathMonitor(int soc)
+WarningRanges BatteryHelathMonitor(int soc)
 {  
     switch(soc)
     {
-    case 0 ... 20:        
-    return LOW_SOC_BREACH;
+    case 0 ... 20:  
+    case 81 ... 100:	
+    return ReturnSocBreach(soc);
     break;
     case 21 ...24:
-    return LOW_SOC_WARNING;
-    break;
     case 25 ... 75:        
-    return SOC_NORMAL; 
-    break;
     case 76 ... 80:        
-    return HIGH_SOC_WARNING;
-    break;
-    case 81 ... 100:
-    return HIGH_SOC_BREACH;
+    return ReturnSocWarning(soc);
     break;
     default:
     return SOC_UNDEFINED;
     break;
             
     }
-}*/
+}
+
+WarningRanges ReturnSocBreach(int soc)
+{
+	 
+	if(SocRangeCheck(soc, 20, 81) == 1)
+	{
+		return LOW_SOC_BREACH;
+	}
+	else
+	{
+		return HIGH_SOC_BREACH;
+	}
+	
+}
+
+WarningRanges ReturnSocWarning(int soc)
+{
+	
+	WarningRanges Returnstaus = SOC_NORMAL;
+	
+	if(SocRangeCheck(soc, 24, 76) == 1)
+	{
+		Returnstaus = LOW_SOC_WARNING;
+	}
+	else
+	{
+		Returnstaus = HIGH_SOC_WARNING;
+	}
+	
+	return Returnstaus;
+	
+}
