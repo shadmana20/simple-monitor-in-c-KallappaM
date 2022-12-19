@@ -78,5 +78,7 @@ int main()
   assert(PreWarningMessageTable[PreWarningIndicatorMessage(77,SOCMIN,SOCMAX)] == "Approaching_charge_peak");
   assert(PreWarningMessageTable[PreWarningIndicatorMessage(1,TEMPMIN,TEMPMAX)] == "Approaching_discharge"); /* 5% of 45 is 2 , [0-2],[43-45] */
   assert(PreWarningMessageTable[PreWarningIndicatorMessage(44,TEMPMIN,TEMPMAX)] == "Approaching_charge_peak");
+  SelectLanguageandWarnigMessage(CHINA);
+  assert(PreWarningMessageTable[PreWarningIndicatorMessage(99,TEMPMIN,TEMPMAX)] == "L_S_WARN!!");
 
 }
