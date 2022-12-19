@@ -50,23 +50,16 @@ WarningWithTolerance PreWarningIndicatorMessage(int input, int MinThreshold , in
 
 WarningRanges BatteryHelathMonitor(int soc)
 {  
-    switch(soc)
-    {
-    case 0 ... 20:  
-    case 81 ... 100:	
-    return ReturnSocBreach(soc);
-    break;
-    case 21 ...24:
-    case 25 ... 75:        
-    case 76 ... 80:        
-    return ReturnSocWarning(soc);
-    break;
-    default:
-    return SOC_UNDEFINED;
-    break;
-            
-    }
+    if(SocRangeCheck(soc, 81, 21) == 1)
+	{
+		return ReturnSocWarning(soc);
+	}
+	else
+	{
+		return ReturnSocBreach(soc);
+	}
 }
+
 
 WarningRanges ReturnSocBreach(int soc)
 {
