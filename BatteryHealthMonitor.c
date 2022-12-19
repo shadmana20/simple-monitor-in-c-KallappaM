@@ -9,8 +9,8 @@ struct
 	int PeakRange;
 }descharge_range;
 
-WarningRanges ReturnSocBreach(int soc);
-WarningRanges ReturnSocWarning(int soc);
+static WarningRanges ReturnSocBreach(int soc);
+static WarningRanges ReturnSocWarning(int soc);
 
 int SocRangeCheck(int soc, int MinRange, int MaxRange)
 {
@@ -62,7 +62,7 @@ WarningRanges BatteryHelathMonitor(int soc)
 }
 
 
-WarningRanges ReturnSocBreach(int soc)
+static WarningRanges ReturnSocBreach(int soc)
 {
 	 
 	if(SocRangeCheck(soc, 20, 81) == 1)
@@ -76,7 +76,7 @@ WarningRanges ReturnSocBreach(int soc)
 	
 }
 
-WarningRanges ReturnSocWarning(int soc)
+static WarningRanges ReturnSocWarning(int soc)
 {
 	
 	WarningRanges Returnstaus = SOC_NORMAL;
