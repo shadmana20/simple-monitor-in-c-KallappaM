@@ -27,6 +27,5 @@ typedef enum {
     Warning_max
 } WarningWithTolerance;
 
-void CalculateDrianPeakThreshold(int MinThreshold , int MaxThreshold);
 void SelectLanguageandWarnigMessage(Select_Language Language);
 WarningRanges BatteryHelathMonitor(int soc);
