@@ -8,6 +8,9 @@ struct
 	int PeakRange;
 }descharge_range;
 
+WarningRanges ReturnSocBreach(int soc);
+WarningRanges ReturnSocWarning(int soc);
+
 int SocRangeCheck(int soc, int MinRange, int MaxRange)
 {
 	if(soc <= MinRange)
